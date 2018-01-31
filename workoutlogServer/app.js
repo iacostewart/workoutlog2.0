@@ -5,7 +5,7 @@ let bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-app.post('./api/user', function (req, res) {
+app.post('/api/user', function (req, res) {
     let username = req.body.user.username;
     let pass = req.body.user.password;
 
@@ -16,7 +16,7 @@ app.post('./api/user', function (req, res) {
     }).then(
         function createSuccess(user) {
             res.json({
-                uer: user,
+                user: user,
                 message: 'create'
             });
         },
@@ -56,7 +56,7 @@ let User = sequelize.define('user', {
     username: Sequelize.STRING,
     passwordhash: Sequelize.STRING,
 });
-User.sync();
+//User.sync();
 //to drop table
-//User.sync({ force: true });
+User.sync({ force: true });
 
