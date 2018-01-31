@@ -1,0 +1,16 @@
+{
+  "name": "workoutclient",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./node_modules/http-server/bin/http-server"
+  },
+  "author": "Ian Stewart",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  },
+  "dependencies": {},
+  "description": ""
+}
