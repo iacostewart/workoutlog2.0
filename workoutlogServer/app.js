@@ -1,3 +1,4 @@
+require('dotenv').config();
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
@@ -13,6 +14,7 @@ app.use(bodyParser.json());
 //login Route
 app.use('/api/login', require('./routes/session.js'));
 app.use(require('./middleware/headers'));
+app.use(require('./middleware/validate-session'));
 app.use('/api/user', require('./routes/user.js'));
 app.use('/api/test', function (req, res) {
     res.send('hello World')
