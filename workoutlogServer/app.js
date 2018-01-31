@@ -1,8 +1,11 @@
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
-
-
+let sequelize = require('./db.js')
+let User = sequelize.import('./models/user.js')
+User.sync();
+//to drop table
+//User.sync({ force: true });
 app.use(bodyParser.json());
 
 app.post('/api/user', function (req, res) {
@@ -34,29 +37,11 @@ app.listen(3000, function () {
     console.log("app is open on 3000!");
 })
 
-let Sequelize = require('sequelize');
-let sequelize = new Sequelize('workoutlog', 'postgres', 'Ij7Ae7Ns0S@10414forever', {
-    host: 'localhost',
-    dialect: 'postgres'
-});
 
-sequelize.authenticate().then(
-    function () {
-        console.log('connected to workoulog postgress db');
-    },
-    function (err) {
-        console.log(err);
-    }
-);
 
 
 //user model in sqllize
 
-let User = sequelize.define('user', {
-    username: Sequelize.STRING,
-    passwordhash: Sequelize.STRING,
-});
-//User.sync();
-//to drop table
-User.sync({ force: true });
+
+
 
