@@ -1,4 +1,4 @@
-(function() {
+$(function() {
     $.extend(WorkoutLog, {
     //signup method
         signup: function() {
@@ -15,7 +15,7 @@
             //signup post
             let signup = $.ajax({
                 type: "POST",
-                url:WorkoutLog.API_BASE = "user",
+                url: WorkoutLog.API_BASE + "user",
                 data:JSON.stringify( user ),
                 contentType: "application/json"
             });
@@ -23,6 +23,9 @@
                 signup.done(function(data) {
                     if(data.sessionToken) {
                         WorkoutLog.setAuthHeader(data.sessionToken);
+                        console.log("you made it");
+                        console.log(data.sessionToken);
+                      
                     }
                     $("#signup-modal").modal("hide");
                     $(".disabled").removeClass("disables");
@@ -37,7 +40,8 @@
     //login method
 $("#signup").on("click", WorkoutLog.signup);
     //loginout method
-
+console.log("clicked");
+console.log(data.sessionToken);
 
     });
     //bind events
