@@ -18,7 +18,7 @@ Definition //objects in the model
     })
     .then(
     //createSuccess Function
-    function creatSuccess(definition) {
+    function createSuccess(definition) {
         //send a response as json
         res.json({
             definition: definition
@@ -33,17 +33,18 @@ Definition //objects in the model
 
 router.get('/', function(req,res) {
     //user variable 
-    let userid = req.user.id;
-    definition
-    //findAll by owner method
+    let userid = req.params.id;
+    Definition
     .findAll({
         where: { owner: userid }
     })
     .then(
         //success
         function findAllSuccess(data) {
-            console.log(data);
-            res.json(data);
+            res.json({
+                message: 'definitions',
+                data: data
+            });
         },
         //failure
         function findAllError(err) {
