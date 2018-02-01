@@ -8,7 +8,7 @@ router.post('/', function (req, res) {
     let description = req.body.definition.desc;
     let logType = req.body.definition.type;
     let owner = req.user.id;
-})
+
 // methods
 Definition //objects in the model
     .create({
@@ -29,7 +29,7 @@ Definition //objects in the model
         res.send(500, er.message);
     }
     );
-           // });
+            });
 
 router.get('/', function(req,res) {
     //user variable 

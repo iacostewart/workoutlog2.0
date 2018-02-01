@@ -18,6 +18,7 @@ app.use(require('./middleware/validate-session'));
 // ROUTES (entrances)
 app.use('/api/login', require('./routes/session.js'));
 app.use('/api/user', require('./routes/user.js'));
+app.use('/api/definition', require('./routes/definitions.js'));
 app.use('/api/test', function (req, res) {
     res.send('hello World')
 })
