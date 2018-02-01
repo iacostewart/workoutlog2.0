@@ -5,7 +5,8 @@ let bodyParser = require('body-parser');
 let sequelize = require('./db.js')
 let User = sequelize.import('./models/user.js')
 
-User.sync();
+sequelize.sync();
+//User.sync(); 
 //to drop table
 //User.sync({ force: true });
 

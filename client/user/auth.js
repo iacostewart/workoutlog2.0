@@ -1,10 +1,12 @@
 $(function () {
+    console.log("AughJs exists")
     $.extend(WorkoutLog, {
         //signup method
         signup: function () {
             //username & password variables.
             let username = $("#su_username").val();
             let password = $("#su_password").val();
+            console.log("username", username);
             // user object
             let user = {
                 user: {
@@ -12,6 +14,7 @@ $(function () {
                     password: password
                 }
             };
+            console.log("user", user);
             //signup post
             let signup = $.ajax({
                 type: "POST",
@@ -21,6 +24,7 @@ $(function () {
             });
             //signup done/fail
             signup.done(function (data) {
+                console.log(data);
                 if (data.sessionToken) {
                     WorkoutLog.setAuthHeader(data.sessionToken);
                     console.log("you made it");
@@ -79,7 +83,7 @@ $(function () {
 
     // bind events
     $("#login").on("click", WorkoutLog.login);
-    $("#signup").on("clicK", WorkoutLog.signup);
+    $("#signup").on("click", WorkoutLog.signup);
     $("#loginout").on("click", WorkoutLog.loginout);
 
     if (window.localStorage.getItem("sessionToken")) {
