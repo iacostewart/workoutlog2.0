@@ -1,5 +1,5 @@
 let Sequelize = require('sequelize');
-let sequelize = new Sequelize('workoutlog', 'postgres', 'Ij7Ae7Ns0S@10414forever', {
+let sequelize = new Sequelize('workoutlog', 'postgres', process.env.DB_PASS, {
     host: 'localhost',
     dialect: 'postgres'
 });
