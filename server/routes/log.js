@@ -31,7 +31,7 @@ router.post('/', function(req,res){
 
 router.get('/', function(req, res) {
     let userid = req.user.id;
-    console.log(req.user)
+   // console.log(req.user)
     Log
     .findAll({
         where: { owner: userid }
@@ -50,6 +50,23 @@ router.get('/', function(req, res) {
             });
         }
     );
+});
+
+router.delete('/', function(req, res) {
+    let data = req.body.log.id;
+    
+    Log
+    .destroy({
+            where: { id: data }
+
+        }).then( 
+            function deleteLogSuccess(data){
+                res.send("you removed a log");
+            },
+            function deleteLogError(err) {
+                res.send(500, err.message);
+            }
+        );
 });
 
 module.exports = router;
