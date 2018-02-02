@@ -11,6 +11,8 @@
   "devDependencies": {
     "http-server": "^0.11.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^4.0.0"
+  },
   "description": ""
 }
