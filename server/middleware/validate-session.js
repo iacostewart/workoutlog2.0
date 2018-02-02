@@ -10,6 +10,7 @@ module.exports = function(req, res, next) {
             if(decoded){
                 User.findOne({ where: { id: decoded.id } } ).then(
                     function(user){
+                        console.log(user.id, "something to stand out") 
                         req.user = user;
                         next();
                     

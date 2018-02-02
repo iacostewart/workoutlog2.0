@@ -1,10 +1,12 @@
 $(function () {
+    console.log("AughJs exists")
     $.extend(WorkoutLog, {
         //signup method
         signup: function () {
             //username & password variables.
             let username = $("#su_username").val();
             let password = $("#su_password").val();
+            console.log("username", username);
             // user object
             let user = {
                 user: {
@@ -12,6 +14,7 @@ $(function () {
                     password: password
                 }
             };
+            console.log("user", user);
             //signup post
             let signup = $.ajax({
                 type: "POST",
@@ -21,11 +24,17 @@ $(function () {
             });
             //signup done/fail
             signup.done(function (data) {
+                console.log(data);
                 if (data.sessionToken) {
                     WorkoutLog.setAuthHeader(data.sessionToken);
+                    WorkoutLog.definition.fetchAll();
+                    WorkoutLog.log.fetchAll();
                     console.log("you made it");
                 }
-
+                $('a[href="define"]').tab('show');
+                ("#su_username").valueOf("");
+                $("#su_password").val("");
+                $('a[href="#define"]').tab("show");
                 $("#signup-modal").modal("hide");
                 $(".disabled").removeClass("disabled");
                 $("#loginout").text("Logout");
@@ -56,8 +65,13 @@ $(function () {
             login.done(function (data) {
                 if (data.sessionToken) {
                     WorkoutLog.setAuthHeader(data.sessionToken);
+                    WorkoutLog.definition.fetchAll();
+                    WorkoutLog.log.fetchAll();
 
                 }
+                $("#li_username").val("");
+                $("#li_password").val(""); 
+                $('a[href="#define"]').tab("show");
                 $("#login-modal").modal("hide");
                 $(".disabled").removeClass("disabled");
                 $("#loginout").text("logout");
@@ -79,7 +93,7 @@ $(function () {
 
     // bind events
     $("#login").on("click", WorkoutLog.login);
-    $("#signup").on("clicK", WorkoutLog.signup);
+    $("#signup").on("click", WorkoutLog.signup);
     $("#loginout").on("click", WorkoutLog.loginout);
 
     if (window.localStorage.getItem("sessionToken")) {

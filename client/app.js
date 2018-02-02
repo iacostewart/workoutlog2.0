@@ -58,6 +58,19 @@ $(function () {
     });
 
     //setHeader if we 
+//bind tab change events
+//boostrap tab  binding to a boostrap event
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    let target = $(e.target).attr("href"); // activated tab
+    if (target === "#log") {
+       WorkoutLog.log.setDefinitions();
+    }
+
+    if (target === "#history") {
+       WorkoutLog.log.setHistory();
+    }
+
+});
 
     let token = window.localStorage.getItem("sessionToken");
     if (token) {
