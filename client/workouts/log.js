@@ -43,6 +43,10 @@ $(function () {
                 logger.done(function(data) {
                     console.log("jaysiadto", WorkoutLog)
                     WorkoutLog.log.workouts.push(data.data);
+                    $("#log-description").val("");
+                    $("#log-result").val("");
+                    $('a[href="#history"]').tab("show");
+                    $('a[href="#history"]').tab("show");
                 });
             },
             fetchAll: function () {

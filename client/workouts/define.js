@@ -19,6 +19,10 @@ $(function () {
                 define.done(function (data) {
                         console.log(data.definition)
                     WorkoutLog.definition.userDefinitions.push(data.definition);
+
+                    $("#def-description").val("");
+                    $("#def-logtype").val("");
+                    $('a[href="#log"]').tab("show");
                 });
             },
             fetchAll: function () {

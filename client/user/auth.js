@@ -31,7 +31,10 @@ $(function () {
                     WorkoutLog.log.fetchAll();
                     console.log("you made it");
                 }
-
+                $('a[href="define"]').tab('show');
+                ("#su_username").valueOf("");
+                $("#su_password").val("");
+                $('a[href="#define"]').tab("show");
                 $("#signup-modal").modal("hide");
                 $(".disabled").removeClass("disabled");
                 $("#loginout").text("Logout");
@@ -66,6 +69,9 @@ $(function () {
                     WorkoutLog.log.fetchAll();
 
                 }
+                $("#li_username").val("");
+                $("#li_password").val(""); 
+                $('a[href="#define"]').tab("show");
                 $("#login-modal").modal("hide");
                 $(".disabled").removeClass("disabled");
                 $("#loginout").text("logout");
