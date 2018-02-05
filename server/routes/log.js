@@ -54,7 +54,7 @@ router.get('/', function(req, res) {
 //this will retrieve one workout specified by the log id
 router.get('/:id', function(req, res) {
     let data = req.params.id;
-    //console.log(data); here for testing purposes 
+    console.log({data}); //for testing data
     Log
         .findOne({
             where: { id: data }
