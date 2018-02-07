@@ -30,16 +30,16 @@ $(function () {
         }
     });
     // bind tab change events
-    $('a[data-toggle= "tab"]').on('shown.bs.tab', function (e) {
-        let target = $(e.target).attr("href");// activated tab
-        if (target === "#log") {
-            WorkoutLog.log.setDefinitions();
-        }
+    // $('a[data-toggle= "tab"]').on('shown.bs.tab', function (e) {
+    //     let target = $(e.target).attr("href");// activated tab
+    //     if (target === "#log") {
+    //         WorkoutLog.log.setDefinitions();
+    //     }
 
-        if (target === "#history") {
-            WorkoutLog.log.setHistory();
-        }
-    });
+    //     if (target === "#history") {
+    //         WorkoutLog.log.setHistory();
+    //     }
+    // });
     // bind enter key
     $(document).on("keypress", function (e) {
         
@@ -65,8 +65,12 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     if (target === "#log") {
        WorkoutLog.log.setDefinitions();
     }
+    if (target === "#update-log") {
+        WorkoutLog.log.setDefinitions();
+    }
 
     if (target === "#history") {
+        console.log(WorkoutLog.log.workouts)
        WorkoutLog.log.setHistory();
     }
 

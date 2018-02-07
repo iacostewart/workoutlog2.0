@@ -46,11 +46,14 @@ router.get('/', function(req,res) {
                 data: data
             });
         },
+        
         //failure
         function findAllError(err) {
             res.send(500, err.message);
         }
+        
     );
+   
 });
   
 module.exports = router;

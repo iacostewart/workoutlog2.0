@@ -24,9 +24,10 @@ $(function () {
             });
             //signup done/fail
             signup.done(function (data) {
-                console.log(data);
+                console.log("signUP", data.user);
                 if (data.sessionToken) {
                     WorkoutLog.setAuthHeader(data.sessionToken);
+                    console.log('signupSessionToken', data.sessionToken)
                     WorkoutLog.definition.fetchAll();
                     WorkoutLog.log.fetchAll();
                     console.log("you made it");
@@ -86,16 +87,19 @@ $(function () {
         loginout: function () {
             if (window.localStorage.getItem("sessionToken")) {
                 window.localStorage.removeItem("sessionToken");
+                window.location.reload();
                 $("#loginout").text("Login");
             }
+            
         }
     });
+      
 
     // bind events
     $("#login").on("click", WorkoutLog.login);
     $("#signup").on("click", WorkoutLog.signup);
     $("#loginout").on("click", WorkoutLog.loginout);
-
+   
     if (window.localStorage.getItem("sessionToken")) {
         $("#loginout").text("logout");
     }
@@ -108,6 +112,5 @@ $(function () {
 
 //     });
 //     //bind events
-
-
+   
 

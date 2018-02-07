@@ -1,0 +1,73 @@
+body {
+    background-color: rgb(228, 229, 231);
+}
+
+.nav {
+    
+    min-height: 15vh;
+    width:
+    background-color:white;
+    border: 1px solid black;
+}
+
+.container1 {
+    margin: 5px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+#postIt1 {
+    background-color: slategray;
+    height: 15vh;
+    width: 20vh;
+    margin: 1vh;
+}
+
+#postIt2 {
+    background-color: slategray;
+    height: 15vh;
+    width: 20vh;
+    margin: 1vh;
+}
+
+#postIt3 {
+    background-color: slategray;
+    height: 15vh;
+    width: 20vh;
+    margin: 1vh;
+}
+
+#postIt4 {
+    background-color: slategray;
+    height: 15vh;
+    width: 20vh;
+    margin: 1vh;
+}
+a[href="#home"] {
+    color: orange;
+    background-color: lightblue;
+    height: 90%;
+    width: 100%
+}
+
+a[href="#define"] {
+color: green;
+background-color: lightsalmon;
+height: 90%;
+width: 100%;
+}
+a[href="#log"] {
+color: purple;
+background-color: lightgreen;
+height: 90%;
+width: 100%;
+}
+a[href="#history"] {
+color: red;
+background-color: lightskyblue;
+height: 90%;
+width: 100%;
+}
+
