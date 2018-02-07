@@ -6,7 +6,7 @@ let Sleep = sequelize.import('../models/sleep.js');
 router.post('/', function (req, res) {
     //variables
     let hours = req.body.sleep.hours;
-    let owner = req.body.user.id;
+    let owner = req.user.id;
 
 // methods
  //objects in the model
@@ -32,7 +32,7 @@ router.post('/', function (req, res) {
 
 router.get('/', function(req,res) {
     //user variable 
-    let userid = req.params.id;
+    let userid = req.user.id;
     Sleep
     .findAll({
         where: { owner: userid }
