@@ -32,7 +32,7 @@ $(function () {
                     WorkoutLog.log.fetchAll();
                     console.log("you made it");
                 }
-                $('a[href="define"]').tab('show');
+               // $('a[heref="#sleep"]').tab("show");
                 ("#su_username").valueOf("");
                 $("#su_password").val("");
                 $('a[href="#define"]').tab("show");
@@ -73,6 +73,7 @@ $(function () {
                 $("#li_username").val("");
                 $("#li_password").val(""); 
                 $('a[href="#define"]').tab("show");
+                //$('a[href="#sleep"]').tab("show");
                 $("#login-modal").modal("hide");
                 $(".disabled").removeClass("disabled");
                 $("#loginout").text("logout");
